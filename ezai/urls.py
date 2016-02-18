@@ -6,6 +6,7 @@ from django.contrib import admin
 from django.views.i18n import set_language
 
 from mezzanine.core.views import direct_to_template
+from mezzanine.blog.views import blog_post_list
 from mezzanine.conf import settings
 
 
@@ -37,7 +38,7 @@ urlpatterns += [
     # one homepage pattern, so if you use a different one, comment this
     # one out.
 
-    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
@@ -64,7 +65,7 @@ urlpatterns += [
     # page tree in the admin if it was installed.
     # NOTE: Don't forget to import the view function too!
 
-    # url("^$", mezzanine.blog.views.blog_post_list, name="home"),
+    url("^$", blog_post_list, name="home"),
 
     # MEZZANINE'S URLS
     # ----------------
